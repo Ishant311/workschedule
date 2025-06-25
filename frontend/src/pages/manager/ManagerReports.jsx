@@ -44,7 +44,7 @@ const ManagerReports = () => {
                 <p className="text-xs text-gray-600">{report.notes || 'No notes'}</p>
               </div>
               <a
-                href={`http://localhost:5000/${report.filePath}`}
+                href={`https://workschedule-27p9.onrender.com/${report.filePath}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-indigo-600 hover:underline text-sm flex items-center gap-1"
