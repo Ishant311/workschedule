@@ -8,7 +8,7 @@ const JWT_SECRET = process.env.JWT_SECRET || '123456';
 const COOKIE_OPTIONS = {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
-    sameSite: 'strict',
+    sameSite: 'None',
     maxAge: 7 * 24 * 60 * 60 * 1000,
 };
 
@@ -16,7 +16,6 @@ const COOKIE_OPTIONS = {
 exports.login = async (req, res) => {
   const { email, password, role } = req.body;
 
-  // Check if email exists
   const user = await User.findOne({ email });
   if (!user) {
     return res.status(400).json({ message: 'Invalid credentials' });

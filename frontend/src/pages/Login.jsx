@@ -181,7 +181,7 @@ const Login = () => {
           </form>
 
           <p className="text-sm text-center mt-4">
-            Don’t have an account? <a href="/register" className="text-yellow-300 hover:underline">Register</a>
+            Only the Admin can register a new user. If you are a new user, please contact your Admin.
           </p>
         </div>
       </div>

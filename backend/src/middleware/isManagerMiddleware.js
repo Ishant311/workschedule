@@ -16,7 +16,7 @@ const isManagerAuth = async (req, res, next) => {
       return res.status(403).json({ message: "Access denied: Manager only route" });
     }
 
-    req.user = user; // Attach user object to request
+    req.user = user; 
     next();
   } catch (err) {
     console.error("Auth error:", err);
