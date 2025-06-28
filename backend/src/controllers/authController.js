@@ -20,8 +20,6 @@ exports.login = async (req, res) => {
   if (!user) {
     return res.status(400).json({ message: 'Invalid credentials' });
   }
-
-  // Check if password matches
   const isMatch = await bcrypt.compare(password, user.password);
   if (!isMatch) {
     return res.status(400).json({ message: 'Invalid credentials' });
@@ -52,6 +50,6 @@ exports.getMe = async (req, res) => {
 };
 
 exports.logout = async (req, res) => {
-    res.cookie('token','',{...COOKIE_OPTIONS, maxAge: 0}); // Set cookie to expire immediately
+    res.cookie('token','',{...COOKIE_OPTIONS, maxAge: 0});
     res.status(200).json({ message: 'Logged out successfully' });
 };

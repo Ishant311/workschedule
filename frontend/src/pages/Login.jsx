@@ -24,8 +24,6 @@ const Login = () => {
   setLoading(true);
 
   const { email, password, role } = formData;
-
-  // Validate role selection
   if (!role) {
     setLoading(false);
     alert('Please select a role before logging in.');

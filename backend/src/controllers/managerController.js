@@ -2,7 +2,8 @@ const Report = require('../models/reportModel');
 const User = require("../models/userModel");
 const Schedule = require("../models/shiftModel");
 const Leave = require("../models/leaveSchema");
-const { sendEmail } = require("../lib/mailer"); // adjust path as needed
+const { sendEmail } = require("../lib/mailer"); 
+const { DateTime } = require('luxon');
 
 
 
@@ -34,8 +35,9 @@ exports.assignSchedule = async (req, res) => {
       return res.status(400).json({ message: "All required fields must be filled." });
     }
 
-    const startDateTime = new Date(`${date}T${startTime}`);
-    const endDateTime = new Date(`${date}T${endTime}`);
+    const startDateTime = DateTime.fromISO(`${date}T${startTime}`, { zone: 'Asia/Kolkata' }).toJSDate();
+const endDateTime = DateTime.fromISO(`${date}T${endTime}`, { zone: 'Asia/Kolkata' }).toJSDate();
+
 
     if (isNaN(startDateTime) || isNaN(endDateTime)) {
       return res.status(400).json({ message: "Invalid date or time format." });

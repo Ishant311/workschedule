@@ -270,7 +270,7 @@ const ManagerWeeklySchedule = () => {
                             <th className="px-6 py-4 text-left font-medium text-gray-700">Employee</th>
                             {weekdays.map((day, index) => {
                                 const dayDate = weekDates[index];
-                                const isPast = dayDate < new Date(new Date().setHours(0, 0, 0, 0)); // ignore time
+                                const isPast = dayDate < new Date(new Date().setHours(0, 0, 0, 0));
 
                                 return (
                                     <th
